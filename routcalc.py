@@ -65,8 +65,26 @@ if carrier and number is not None:
          nadmiar_km = number - 250
          stawka = 620 + (nadmiar_km * 0.85)
          st.metric(label="Price", value=(f"{stawka}€"))
+ ### Tutaj jest BGM
+ elif carrier == "BGM Van":
+     if number <= 350:
+         stawka = 290
+         st.metric(label="Price", value=(f"{stawka}€"))
+     else:
+         nadmiar_km = number - 350
+         stawka = 290 + (nadmiar_km * 0.75)
+         st.metric(label="Price", value=(f"{stawka}€"))
+ elif carrier == "BGM 12T":
+     if number <= 350:
+         stawka = 600
+         st.metric(label="Price", value=(f"{stawka}€"))
+     else:
+         nadmiar_km = number - 350
+         stawka = 600 + (nadmiar_km * 0.75)
+         st.metric(label="Price", value=(f"{stawka}€"))
  ### Tutaj jak brak wyboru
  elif carrier == "None":
      st.metric(label="Price", value="-")
+
 
 
