@@ -98,40 +98,40 @@ def add_formulas_to_excel(df, output_path):
             worksheet[f'AB{row_num}'] = f'=AA{row_num}+1'
             
             # Corrected stacking factor 1 (kolumna AC = 29)
-            worksheet[f'AC{row_num}'] = f'=IF(ROUNDUP(3.15/V{row_num},0) > AB{row_num}, AB{row_num}, ROUNDUP(3.15/V{row_num},0))'
-            
+            worksheet[f'AC{row_num}'] = f'=IF(ROUNDUP(3/V{row_num},0) > AB{row_num}, AB{row_num}, ROUNDUP(3/V{row_num},0))'
+
             # Corrected stacking factor 2 (kolumna AD = 30)
-            worksheet[f'AD{row_num}'] = f'=IF(ROUNDUP(1.7/V{row_num},0) > AB{row_num}, AB{row_num}, ROUNDUP(1.7/V{row_num},0))'
+            worksheet[f'AD{row_num}'] = f'=IF(ROUNDUP(2.7/V{row_num},0) > AB{row_num}, AB{row_num}, ROUNDUP(2.7/V{row_num},0))'
             
             # Corrected stacking factor 3 (kolumna AE = 31)
             worksheet[f'AE{row_num}'] = f'=IF(ROUNDUP(2.7/V{row_num},0) > AB{row_num}, AB{row_num}, ROUNDUP(2.7/V{row_num},0))'
             
             # Corrected stacking factor 4 (kolumna AF = 32)
-            worksheet[f'AF{row_num}'] = f'=IF(ROUNDUP(2.3/V{row_num},0) > AB{row_num}, AB{row_num}, ROUNDUP(2.3/V{row_num},0))'
+            worksheet[f'AF{row_num}'] = f'=IF(ROUNDUP(2.34/V{row_num},0) > AB{row_num}, AB{row_num}, ROUNDUP(2.34/V{row_num},0))'
             
             # Corrected stacking factor 5 (kolumna AG = 33)
             worksheet[f'AG{row_num}'] = f'=IF(ROUNDUP(2.3/V{row_num},0) > AB{row_num}, AB{row_num}, ROUNDUP(2.3/V{row_num},0))'
             
             # Corrected stacking factor 6 (kolumna AH = 34)
-            worksheet[f'AH{row_num}'] = f'=IF(ROUNDUP(1.7/V{row_num},0) > AB{row_num}, AB{row_num}, ROUNDUP(1.7/V{row_num},0))'
+            worksheet[f'AH{row_num}'] = f'=IF(ROUNDUP(1.86/V{row_num},0) > AB{row_num}, AB{row_num}, ROUNDUP(1.86/V{row_num},0))'
             
-            # loading meters (kolumna N = 14)
-            worksheet[f'N{row_num}'] = f'=IF(AC{row_num}=0, 999, ROUNDUP(Y{row_num}/AC{row_num},0) * ((W{row_num}*X{row_num})/2.48))'
+            # Loading meters (kolumna N = 14)
+            worksheet[f'N{row_num}'] = f'=IF(OR(AC{row_num}=0, X{row_num}>13.6, W{row_num}>2.48), 999, ROUNDUP(Y{row_num}/AC{row_num},0) * ((W{row_num}*X{row_num})/2.48))'
             
             # Capacity 1 (kolumna O = 15)
-            worksheet[f'O{row_num}'] = f'=IF(AD{row_num}=0, 999, ROUNDUP(Y{row_num}/AD{row_num},0) * ((W{row_num}*X{row_num})/2.48))'
+            worksheet[f'O{row_num}'] = f'=IF(OR(AD{row_num}=0, X{row_num}>13.6, W{row_num}>2.48), 999, ROUNDUP(Y{row_num}/AD{row_num},0) * ((W{row_num}*X{row_num})/2.48))'
             
             # Capacity 2 (kolumna P = 16)
-            worksheet[f'P{row_num}'] = f'=IF(AE{row_num}=0, 999, ROUNDUP(Y{row_num}/AE{row_num},0) * ((W{row_num}*X{row_num})/2.48))'
+            worksheet[f'P{row_num}'] = f'=IF(OR(AE{row_num}=0, X{row_num}>7.2, W{row_num}>2.48), 999, ROUNDUP(Y{row_num}/AE{row_num},0) * ((W{row_num}*X{row_num})/2.48))'
             
             # Capacity 3 (kolumna Q = 17)
-            worksheet[f'Q{row_num}'] = f'=IF(AF{row_num}=0, 999, ROUNDUP(Y{row_num}/AF{row_num},0) * ((W{row_num}*X{row_num})/2.4))'
+            worksheet[f'Q{row_num}'] = f'=IF(OR(AF{row_num}=0, X{row_num}>7.2, W{row_num}>2.48), 999, ROUNDUP(Y{row_num}/AF{row_num},0) * ((W{row_num}*X{row_num})/2.48))'
             
             # Capacity 4 (kolumna R = 18)
-            worksheet[f'R{row_num}'] = f'=IF(AG{row_num}=0, 999, ROUNDUP(Y{row_num}/AG{row_num},0) * ((W{row_num}*X{row_num})/2.2))'
+            worksheet[f'R{row_num}'] = f'=IF(OR(AG{row_num}=0, X{row_num}>4.2, W{row_num}>2.2), 999, ROUNDUP(Y{row_num}/AG{row_num},0) * ((W{row_num}*X{row_num})/2.2))'
             
             # Capacity 5 (kolumna S = 19)
-            worksheet[f'S{row_num}'] = f'=IF(AH{row_num}=0, 999, ROUNDUP(Y{row_num}/AH{row_num},0) * ((W{row_num}*X{row_num})/1.7))'
+            worksheet[f'S{row_num}'] = f'=IF(OR(AH{row_num}=0, X{row_num}>4, W{row_num}>1.56), 999, ROUNDUP(Y{row_num}/AH{row_num},0) * ((W{row_num}*X{row_num})/1.56))'
             
             # tags (kolumna AN = 40)
             worksheet[f'AN{row_num}'] = f'=IF(E{row_num}="LEM EUROPE GMBH","ML",IF(E{row_num}="IEC GMBH","ML",IF(E{row_num}="ANTARES LIFE CYCLE SOLUTION GMBH","SM",IF(E{row_num}="HEIMSCH DESIGN GMBH","NOBGM",IF(E{row_num}="HENKEL WERK HEIDELBERG","ADR",IF(E{row_num}="PROMENS (ROTOVIA) HOCKENHEIM GMBH","ROT",""))))))'
