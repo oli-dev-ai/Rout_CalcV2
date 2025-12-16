@@ -98,22 +98,22 @@ def add_formulas_to_excel(df, output_path):
             worksheet[f'AB{row_num}'] = f'=AA{row_num}+1'
             
             # Corrected stacking factor 1 (kolumna AC = 29)
-            worksheet[f'AC{row_num}'] = f'=IF(ROUNDUP(3/V{row_num},0) > AB{row_num}, AB{row_num}, ROUNDUP(3/V{row_num},0))'
-
+            worksheet[f'AC{row_num}'] = f'=IF(INT(3/V{row_num}) > AB{row_num}, AB{row_num}, INT(3/V{row_num}))'
+            
             # Corrected stacking factor 2 (kolumna AD = 30)
-            worksheet[f'AD{row_num}'] = f'=IF(ROUNDUP(2.7/V{row_num},0) > AB{row_num}, AB{row_num}, ROUNDUP(2.7/V{row_num},0))'
+            worksheet[f'AD{row_num}'] = f'=IF(INT(2.7/V{row_num}) > AB{row_num}, AB{row_num}, INT(2.7/V{row_num}))'
             
             # Corrected stacking factor 3 (kolumna AE = 31)
-            worksheet[f'AE{row_num}'] = f'=IF(ROUNDUP(2.7/V{row_num},0) > AB{row_num}, AB{row_num}, ROUNDUP(2.7/V{row_num},0))'
+            worksheet[f'AE{row_num}'] = f'=IF(INT(2.7/V{row_num}) > AB{row_num}, AB{row_num}, INT(2.7/V{row_num}))'
             
             # Corrected stacking factor 4 (kolumna AF = 32)
-            worksheet[f'AF{row_num}'] = f'=IF(ROUNDUP(2.34/V{row_num},0) > AB{row_num}, AB{row_num}, ROUNDUP(2.34/V{row_num},0))'
+            worksheet[f'AF{row_num}'] = f'=IF(INT(2.34/V{row_num}) > AB{row_num}, AB{row_num}, INT(2.34/V{row_num}))'
             
             # Corrected stacking factor 5 (kolumna AG = 33)
-            worksheet[f'AG{row_num}'] = f'=IF(ROUNDUP(2.3/V{row_num},0) > AB{row_num}, AB{row_num}, ROUNDUP(2.3/V{row_num},0))'
+            worksheet[f'AG{row_num}'] = f'=IF(INT(2.3/V{row_num}) > AB{row_num}, AB{row_num}, INT(2.3/V{row_num}))'
             
             # Corrected stacking factor 6 (kolumna AH = 34)
-            worksheet[f'AH{row_num}'] = f'=IF(ROUNDUP(1.86/V{row_num},0) > AB{row_num}, AB{row_num}, ROUNDUP(1.86/V{row_num},0))'
+            worksheet[f'AH{row_num}'] = f'=IF(INT(1.86/V{row_num}) > AB{row_num}, AB{row_num}, INT(1.86/V{row_num}))'
             
             # Loading meters (kolumna N = 14)
             worksheet[f'N{row_num}'] = f'=IF(OR(AC{row_num}=0, X{row_num}>13.6, W{row_num}>2.48), 999, ROUNDUP(Y{row_num}/AC{row_num},0) * ((W{row_num}*X{row_num})/2.48))'
