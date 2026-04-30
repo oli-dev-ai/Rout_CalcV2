@@ -86,13 +86,13 @@ def add_formulas_to_excel(df, output_path):
             row_num = i
             
             # absolute timewindows (kolumna AJ = 36)
-            worksheet[f'AJ{row_num}'].value = f"=IFERROR(VLOOKUP(G{row_num},'https://juliob50600527-my.sharepoint.com/personal/oliwier_opyrchal_gruposese_com/Documents/[opentime.xlsx]sheet'!$B$2:$F$1000,5,FALSE),\"06:00:00-14:00:00\")"
-            
+            worksheet[f'AJ{row_num}'].value = f'=IFERROR(VLOOKUP(D{row_num},\'{path}\'!$A:$H,8,FALSE),"06:00:00-14:00:00")'
+
             # Latitude (kolumna L = 12)
-            worksheet[f'L{row_num}'] = f'=IFERROR(VLOOKUP(E{row_num},\'https://juliob50600527-my.sharepoint.com/personal/oliwier_opyrchal_gruposese_com/Documents/[Points of loading PTV.xlsx]ptvform\'!$A:$D,2,FALSE),"Nie znaleziono")'
+            worksheet[f'L{row_num}'].value = f'=IFERROR(VLOOKUP(D{row_num},\'{path}\'!$A:$D,3,FALSE),"Nie znaleziono")'
             
             # Longitude (kolumna M = 13)
-            worksheet[f'M{row_num}'] = f'=IFERROR(VLOOKUP(E{row_num},\'https://juliob50600527-my.sharepoint.com/personal/oliwier_opyrchal_gruposese_com/Documents/[Points of loading PTV.xlsx]ptvform\'!$A:$D,3,FALSE),"Nie znaleziono")'
+            worksheet[f'M{row_num}'].value = f'=IFERROR(VLOOKUP(D{row_num},\'{path}\'!$A:$D,4,FALSE),"Nie znaleziono")'
             
             # Corrected stacking factor (kolumna AB = 28)
             worksheet[f'AB{row_num}'] = f'=AA{row_num}+1'
