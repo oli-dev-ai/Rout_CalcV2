@@ -84,7 +84,8 @@ def add_formulas_to_excel(df, output_path):
         # Dodaj formuły dla każdego wiersza (pomijając nagłówek)
         for i in range(2, len(df) + 2):  # Excel rows start at 1, +1 for header
             row_num = i
-            
+
+            path = "https://juliob50600527.sharepoint.com/sites/ControlTowerMANHeilbronn/Shared Documents/Carriers/[Dispo - New.xlsx]Supplier"
             # absolute timewindows (kolumna AJ = 36)
             worksheet[f'AJ{row_num}'].value = f'=IFERROR(VLOOKUP(D{row_num},\'{path}\'!$A:$H,8,FALSE),"06:00:00-14:00:00")'
 
