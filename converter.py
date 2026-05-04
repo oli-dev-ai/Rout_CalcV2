@@ -26,7 +26,7 @@ def process_ptv_data(df):
     
     # Kolumny do zachowania (indeksy Python: VBA-1)
     # VBA: 4, 9, 16, 11, 17, 18, 19, 22, 30, 36, 37, 38, 39, 40, 41, 55 , 23
-    cols_to_keep =   [3, 8, 15, 10, 16, 17, 18, 21, 22, 29, 35, 36, 37, 38, 39, 40, 54]
+    cols_to_keep =   [3, 8, 15, 10, 16, 17, 18, 21, 22, 27, 35, 36, 37, 38, 39, 40, 54]
     
     # Docelowe kolumny (indeksy Python: VBA-1)
     # VBA: 48, 27, 4, 5, 6, 8, 7, 49, 50, 21, 20, 22, 23, 24, 25, 26, 22
