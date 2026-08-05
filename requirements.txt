@@ -1,5 +1,6 @@
-streamlit
 plotly.express
 pandas
 openpyxl
 numpy
+starlette<1.4.0
+streamlit>=1.62.0
